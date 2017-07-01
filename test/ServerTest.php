@@ -405,7 +405,7 @@ class ServerTest extends TestCase {
                     $client->writeBuffer = "b";
                     $client->pendingResponses = 1;
                     $write($client, true);
-                    yield;
+                    yield new \Amp\Delayed(100);
                 } catch (\Throwable $e) {
                     $deferred->fail($e);
                 } finally {
